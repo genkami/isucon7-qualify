@@ -4,7 +4,8 @@ GEM
     backports (3.9.1)
     multi_json (1.12.2)
     mustermann (1.0.1)
-    mysql2 (0.4.9)
+    mysql2 (0.5.2)
+    newrelic_rpm (6.5.0.357)
     puma (3.10.0)
     rack (2.0.3)
     rack-protection (2.0.0)
@@ -27,10 +28,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  mysql2
+  mysql2 (~> 0.5)
+  newrelic_rpm (~> 6.5)
   puma
   sinatra
   sinatra-contrib
 
 BUNDLED WITH
-   1.13.7
+   2.0.2
