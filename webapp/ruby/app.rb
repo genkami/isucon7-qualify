@@ -1,9 +1,16 @@
 require 'digest/sha1'
 require 'mysql2'
 require 'sinatra/base'
-require 'newrelic_rpm'
+require 'stackprof'
 
 class App < Sinatra::Base
+  use StackProf::Middleware,
+      enabled: true,
+      mode: :cpu,
+      raw: true,
+      interval: 1000,
+      path: "/tmp/stackprof-#{Time.now.to_i}.dump"
+
   configure do
     set :session_secret, 'tonymoris'
     set :public_folder, File.expand_path('../../public', __FILE__)
