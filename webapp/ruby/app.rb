@@ -131,7 +131,7 @@ class App < Sinatra::Base
     rows = statement.execute(last_message_id, channel_id).to_a
     user_ids = rows.map { |row| db.escape(row['user_id']) }.join(',')
     users = db.query("SELECT name, display_name, avatar_icon FROM user WHERE id IN (#{user_ids})")
-              .execute(user_ids).to_a.map { |u| [u['id'], u] }.to_h
+              .to_a.map { |u| [u['id'], u] }.to_h
     response = []
     rows.each do |row|
       r = {}
