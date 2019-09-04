@@ -8,6 +8,7 @@ class App < Sinatra::Base
       enabled: true,
       mode: :cpu,
       raw: true,
+      save_every: 10,
       interval: 1000,
       path: "/tmp/stackprof-#{Time.now.to_i}.dump"
 
